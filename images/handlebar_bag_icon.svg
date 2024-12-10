@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="38" viewBox="0 0 56 38">
+  <g class="handlebar_bag_icon" data-name="handlebar_bag_icon" transform="translate(-890 -703)">
+    <g class="cls-1 bottom_panel_left" transform="translate(891 722)">
+      <path class="cls-3" d="M0,0H16a0,0,0,0,1,0,0V18a0,0,0,0,1,0,0H5a5,5,0,0,1-5-5V0A0,0,0,0,1,0,0Z"/>
+      <path class="cls-4" d="M-.5-.5h17a0,0,0,0,1,0,0v19a0,0,0,0,1,0,0H5A5.5,5.5,0,0,1-.5,13V-.5A0,0,0,0,1-.5-.5Z"/>
+    </g>
+    <g class="cls-1 bottom_panel_right" transform="translate(929 722)">
+      <path class="cls-3" d="M0,0H16a0,0,0,0,1,0,0V13a5,5,0,0,1-5,5H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z"/>
+      <path class="cls-4" d="M-.5-.5h17a0,0,0,0,1,0,0V13A5.5,5.5,0,0,1,11,18.5H-.5a0,0,0,0,1,0,0V-.5A0,0,0,0,1-.5-.5Z"/>
+    </g>
+    <g class="cls-1 bottom_panel_center" transform="translate(908 722)">
+      <rect class="cls-3" width="20" height="18"/>
+      <rect class="cls-4" x="-0.5" y="-0.5" width="21" height="19"/>
+    </g>
+    <g class="cls-1 top_panel_left" transform="translate(891 705)">
+      <path class="cls-3" d="M5,0H16a0,0,0,0,1,0,0V23a0,0,0,0,1,0,0H7a7,7,0,0,1-7-7V5A5,5,0,0,1,5,0Z"/>
+      <path class="cls-4" d="M5-.5H16.5a0,0,0,0,1,0,0v24a0,0,0,0,1,0,0H7A7.5,7.5,0,0,1-.5,16V5A5.5,5.5,0,0,1,5-.5Z"/>
+    </g>
+    <g class="cls-1 top_panel_right" transform="translate(929 705)">
+      <path class="cls-3" d="M0,0H11a5,5,0,0,1,5,5V16a7,7,0,0,1-7,7H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z"/>
+      <path class="cls-4" d="M-.5-.5H11A5.5,5.5,0,0,1,16.5,5V16A7.5,7.5,0,0,1,9,23.5H-.5a0,0,0,0,1,0,0V-.5A0,0,0,0,1-.5-.5Z"/>
+    </g>
+    <g class="cls-1 top_panel_center" transform="translate(908 705)">
+      <rect class="cls-3" width="20" height="23"/>
+      <rect class="cls-4" x="-0.5" y="-0.5" width="21" height="24"/>
+    </g>
+    <rect class="cls-2 top_strap_left" width="5" height="24" transform="translate(897 705)"/>
+    <rect class="cls-2 bottom_strap_left" width="5" height="11" transform="translate(897 729)"/>
+    <rect class="cls-2 bottom_strap_right" width="5" height="11" transform="translate(934 729)"/>
+    <path class="cls-2 accents" d="M2,0H18a2,2,0,0,1,2,2V2a0,0,0,0,1,0,0H0A0,0,0,0,1,0,2V2A2,2,0,0,1,2,0Z" transform="translate(908 703)"/>
+    <rect class="cls-2 zipper" width="20" height="2" transform="translate(908 713)"/>
+    <rect class="cls-2 top_strap_right" width="5" height="24" transform="translate(934 705)"/>
+  </g>
+</svg>
