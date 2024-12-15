@@ -146,21 +146,26 @@
             // Show the loading overlay while the image is being loaded.
             showLoadingMessage();
 
-            // Simulate image loading with a timeout.
-            setTimeout(() => {
-                // Create a new image element and set its properties.
-                const img = document.createElement("img");
-                img.src = newImage;
-                img.alt = `${divId}-${color}`;
-                img.className = "image";
+            // Create a new image element.
+            const img = document.createElement("img");
+            img.src = newImage;
+            img.alt = `${divId}-${color}`;
+            img.className = "image";
 
+            // Add event listeners to handle when the image finishes loading or fails to load.
+            img.onload = () => {
                 // Clear any existing content in the target div and append the new image.
                 div.innerHTML = ""; 
                 div.appendChild(img);
 
                 // Hide the loading overlay once the image has been loaded.
                 hideLoadingMessage();
-            }, 0); // Simulate loading time
+            };
+
+            img.onerror = () => {
+                console.error(`Failed to load image: ${newImage}`);
+                hideLoadingMessage(); // Hide the loading message even if there's an error.
+            };
         }
 
         function setupControls(dropdownId, swatchRedId, swatchBlueId) {
