@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Selector</title>
+    <style>
+        #main-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 180px;
+            position: relative;
+        }
+
+        .image-div {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .controls {
+            margin-top: 10px;
+        }
+
+        .color-swatch {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+
+        .color-red {
+            background-color: red;
+        }
+
+        .color-blue {
+            background-color: blue;
+        }
+
+        .selected {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-container">
+        <div id="div-top-1" class="image-div"><img src="img-top-1-red.png" alt="div-top-1-red" class="image"></div>
+        <div id="div-top-2" class="image-div"><img src="img-top-2-blue.png" alt="div-top-2-blue" class="image"></div>
+        <div id="div-top-3" class="image-div"><img src="img-top-3-red.png" alt="div-top-3-red" class="image"></div>
+        <div id="div-bottom-1" class="image-div"><img src="img-bottom-1-red.png" alt="div-bottom-1-red" class="image"></div>
+        <div id="div-bottom-2" class="image-div"><img src="img-bottom-2-blue.png" alt="div-bottom-2-blue" class="image"></div>
+        <div id="div-bottom-3" class="image-div"><img src="img-bottom-3-red.png" alt="div-bottom-3-red" class="image"></div>
+        <div class="loading-overlay" id="loading-message">Loading...</div>
+    </div>
+
+    <div class="controls">
+        <h3>Top Controls</h3>
+        <select id="dropdown-top">
+            <option value="div-top-1">div-top-1</option>
+            <option value="div-top-2">div-top-2</option>
+            <option value="div-top-3">div-top-3</option>
+        </select>
+        <div>
+            <span id="swatch-top-red" class="color-swatch color-red"></span>
+            <span id="swatch-top-blue" class="color-swatch color-blue"></span>
+        </div>
+
+        <h3>Bottom Controls</h3>
+        <select id="dropdown-bottom">
+            <option value="div-bottom-1">div-bottom-1</option>
+            <option value="div-bottom-2">div-bottom-2</option>
+            <option value="div-bottom-3">div-bottom-3</option>
+        </select>
+        <div>
+            <span id="swatch-bottom-red" class="color-swatch color-red"></span>
+            <span id="swatch-bottom-blue" class="color-swatch color-blue"></span>
+        </div>
+    </div>
+
+    <script>
+        const images = {
+            "div-top-1": { red: "img-top-1-red.png", blue: "img-top-1-blue.png" },
+            "div-top-2": { red: "img-top-2-red.png", blue: "img-top-2-blue.png" },
+            "div-top-3": { red: "img-top-3-red.png", blue: "img-top-3-blue.png" },
+            "div-bottom-1": { red: "img-bottom-1-red.png", blue: "img-bottom-1-blue.png" },
+            "div-bottom-2": { red: "img-bottom-2-red.png", blue: "img-bottom-2-blue.png" },
+            "div-bottom-3": { red: "img-bottom-3-red.png", blue: "img-bottom-3-blue.png" },
+        };
+
+        // Keeps track of the currently displayed images in each div.
+        // Prevents unnecessary reloads by checking if the new image matches the current one.
+        const currentImages = {};
+        const loadingMessage = document.getElementById("loading-message");
+
+        // This function displays a loading overlay when an image is being loaded.
+        function showLoadingMessage() {
+            loadingMessage.style.display = "flex";
+        }
+
+        function hideLoadingMessage() {
+            loadingMessage.style.display = "none";
+        }
+
+        function loadImage(divId, color) {
+            // Get the target div element by its ID.
+            const div = document.getElementById(divId);
+            
+            // Determine the new image to load based on the div ID and color.
+            const newImage = images[divId][color];
+
+            // Check if the new image is already displayed in the target div.
+            if (currentImages[divId] === newImage) {
+                return; // Exit the function if the image is already loaded.
+            }
+
+            // Update the tracking object with the new image for the div.
+            currentImages[divId] = newImage;
+
+            // Show the loading overlay while the image is being loaded.
+            showLoadingMessage();
+
+            // Simulate image loading with a timeout.
+            setTimeout(() => {
+                // Create a new image element and set its properties.
+                const img = document.createElement("img");
+                img.src = newImage;
+                img.alt = `${divId}-${color}`;
+                img.className = "image";
+
+                // Clear any existing content in the target div and append the new image.
+                div.innerHTML = ""; 
+                div.appendChild(img);
+
+                // Hide the loading overlay once the image has been loaded.
+                hideLoadingMessage();
+            }, 0); // Simulate loading time
+        }
+
+        function setupControls(dropdownId, swatchRedId, swatchBlueId) {
+            const dropdown = document.getElementById(dropdownId);
+            const swatchRed = document.getElementById(swatchRedId);
+            const swatchBlue = document.getElementById(swatchBlueId);
+
+            swatchRed.addEventListener("click", () => {
+                loadImage(dropdown.value, "red");
+            });
+
+            swatchBlue.addEventListener("click", () => {
+                loadImage(dropdown.value, "blue");
+            });
+        }
+
+        setupControls("dropdown-top", "swatch-top-red", "swatch-top-blue");
+        setupControls("dropdown-bottom", "swatch-bottom-red", "swatch-bottom-blue");
+    </script>
+</body>
+</html>
