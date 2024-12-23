@@ -68,166 +68,94 @@
                   
         <div class="row g-5">
           <div class="col customizer-main-image">
-            <img src="images/bag_photo_temp.png" class="img-fluid">
+            <div class="main-image-container">
+                <div id="loading-overlay" class="hidden">Loading...</div>
+                <div id="save-config-btn" class="save-button">
+                    <img src="images/save_icon.svg">
+                </div>
+              <button class="nav-arrow left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19.186" height="36.957" viewBox="0 0 19.186 36.957"><path d="M0,18.125,18.125,0,36.25,18.125" transform="translate(0.707 36.604) rotate(-90)" fill="none" stroke="#0d0e15" stroke-width="1"/></svg>
+              </button>
+              <button class="nav-arrow right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19.186" height="36.957" viewBox="0 0 19.186 36.957"><path d="M954.451,344.548l18.125-18.125L990.7,344.548" transform="translate(344.901 -954.097) rotate(90)" fill="none" stroke="#0d0e15" stroke-width="1"/></svg>
+              </button>
+              <div id="product-views-container" class="d-flex h-100 justify-content-center align-items-center">
+                <div id="product-views">
+                    <div id="front-view" class="product-view">
+                        <!-- Front view components will be added here -->
+                    </div>
+                    <!-- Other views (front_profile1, side1, etc.) will be similar -->
+                </div>
+              </div>
+            </div>
+            <div class="main-image-thumbnails d-flex justify-content-center align-items-center">
+              <div class="thumb">
+                <img src="images/bag_thumbnail_temp.png">
+              </div>
+              <div class="thumb">
+                <img src="images/bag_thumbnail_temp.png">
+              </div>
+            </div>
           </div>
     
           <div class="col align-items-start customizer-options">
             <h2 class="fw-bold">Custom Handlebar Bag</h2>
             <form class="border-top d-flex justify-content-between">
-              <select class="form-select">
-                <option selected>Top Panel Left</option>
-                <option value="1">Top Panel Center</option>
-                <option value="2">Top Panel Right</option>
-                <option value="3">Bottom Panel Left</option>
-                <option value="3">Bottom Panel Center</option>
-                <option value="3">Bottom Panel Right</option>
-                <option value="3">Left Panel</option>
-                <option value="3">Right Panel</option>
-                <option value="3">Extension</option>
-              </select>
-              <span class="selected-swatch align-self-center">Light Gray</span>
+                <select id="component-dropdown-1">
+                    <option value="panel_top_left">Top Left Panel</option>
+                    <option value="panel_top_center">Top Center Panel</option>
+                    <option value="panel_top_right">Top Right Panel</option>
+                    <option value="panel_bottom_left">Bottom Left Panel</option>
+                    <option value="panel_bottom_center">Bottom Center Panel</option>
+                    <option value="panel_bottom_right">Bottom Right Panel</option>
+                    <option value="side_left">Left Side</option>
+                    <option value="side_right">Right Side</option>
+                    <option value="extension">Extension</option>
+                </select>
+                <span id="color-label-1" class="color-label"></span>
             </form>
-            <div class="swatches panels d-flex flex-wrap">
-              <div class="swatch red" title="Red"></div>
-              <div class="swatch purple" title="Purple"></div>
-              <div class="swatch navy-blue" title="Navy Blue"></div>
-              <div class="swatch cyan" title="Cyan"></div>
-              <div class="swatch green" title="Green"></div>
-              <div class="swatch neon-green" title="Neon Green"></div>
-              <div class="swatch yellow" title="Yellow"></div>
-              <div class="swatch orange" title="Orange"></div>
-              <div class="swatch light-gray selected" title="Light Gray"></div>
-              <div class="swatch medium-gray" title="Medium Gray"></div>
-              <div class="swatch dark-gray" title="Dark Gray"></div>
+            <div id="color-swatch-1" class="color-swatch">
+                <div data-color="black">Black</div>
+                <div data-color="white">White</div>
+                <div data-color="gray">Gray</div>
+                <div data-color="beige">Beige</div>
+                <div data-color="red">Red</div>
+                <div data-color="olive">Olive</div>
+                <div data-color="orange">Orange</div>
+                <div data-color="yellow">Yellow</div>
+                <div data-color="royal blue">Royal Blue</div>
+                <div data-color="navy">Navy</div>
+                <div data-color="fuchsia">Fuchsia</div>
             </div>
+            
             <form class="border-top d-flex justify-content-between">
-              <select class="form-select">
-                <option selected>Straps Top</option>
-                <option value="1">Straps Bottom</option>
-                <option value="2">Accents</option>
-              </select>
-              <span class="selected-swatch align-self-center">Light Gray</span>
+                <select id="component-dropdown-2">
+                    <option value="straps_top">Top Straps</option>
+                    <option value="straps_bottom">Bottom Straps</option>
+                    <option value="accents">Accents</option>
+                </select>
+                <span id="color-label-2" class="color-label"></span>
             </form>
-            <div class="swatches accents d-flex flex-wrap">
-              <div class="swatch red" title="Red"></div>
-              <div class="swatch purple" title="Purple"></div>
-              <div class="swatch navy-blue" title="Navy Blue"></div>
-              <div class="swatch cyan" title="Cyan"></div>
-              <div class="swatch green" title="Green"></div>
-              <div class="swatch neon-green" title="Neon Green"></div>
-              <div class="swatch yellow" title="Yellow"></div>
-              <div class="swatch orange" title="Orange"></div>
-              <div class="swatch light-gray selected" title="Light Gray"></div>
-              <div class="swatch medium-gray" title="Medium Gray"></div>
-              <div class="swatch dark-gray" title="Dark Gray"></div>
+            <div id="color-swatch-2" class="color-swatch">
+                <div data-color="black">Black</div>
+                <div data-color="white">White</div>
+                <div data-color="gray">Gray</div>
+                <div data-color="beige">Beige</div>
+                <div data-color="red">Red</div>
+                <div data-color="olive">Olive</div>
+                <div data-color="orange">Orange</div>
+                <div data-color="yellow">Yellow</div>
+                <div data-color="royal blue">Royal Blue</div>
+                <div data-color="navy">Navy</div>
+                <div data-color="fuchsia">Fuchsia</div>
             </div>
+            
             <h4 class="fw-bold border-top">Saved Designs</h4>
-            <div class="saved_designs_icons">
-              <svg class="handlebar_bag_icon saved1" xmlns="http://www.w3.org/2000/svg" width="56" height="38" viewBox="0 0 56 38">
-                <g class="handlebar_bag_icon" data-name="handlebar_bag_icon" transform="translate(-890 -703)">
-                  <g class="cls-1 bottom_panel_left red" transform="translate(891 722)">
-                    <path class="cls-3" d="M0,0H16a0,0,0,0,1,0,0V18a0,0,0,0,1,0,0H5a5,5,0,0,1-5-5V0A0,0,0,0,1,0,0Z"/>
-                    <path class="cls-4" d="M-.5-.5h17a0,0,0,0,1,0,0v19a0,0,0,0,1,0,0H5A5.5,5.5,0,0,1-.5,13V-.5A0,0,0,0,1-.5-.5Z"/>
-                  </g>
-                  <g class="cls-1 bottom_panel_right yellow" transform="translate(929 722)">
-                    <path class="cls-3" d="M0,0H16a0,0,0,0,1,0,0V13a5,5,0,0,1-5,5H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z"/>
-                    <path class="cls-4" d="M-.5-.5h17a0,0,0,0,1,0,0V13A5.5,5.5,0,0,1,11,18.5H-.5a0,0,0,0,1,0,0V-.5A0,0,0,0,1-.5-.5Z"/>
-                  </g>
-                  <g class="cls-1 bottom_panel_center cyan" transform="translate(908 722)">
-                    <rect class="cls-3" width="20" height="18"/>
-                    <rect class="cls-4" x="-0.5" y="-0.5" width="21" height="19"/>
-                  </g>
-                  <g class="cls-1 top_panel_left red" transform="translate(891 705)">
-                    <path class="cls-3" d="M5,0H16a0,0,0,0,1,0,0V23a0,0,0,0,1,0,0H7a7,7,0,0,1-7-7V5A5,5,0,0,1,5,0Z"/>
-                    <path class="cls-4" d="M5-.5H16.5a0,0,0,0,1,0,0v24a0,0,0,0,1,0,0H7A7.5,7.5,0,0,1-.5,16V5A5.5,5.5,0,0,1,5-.5Z"/>
-                  </g>
-                  <g class="cls-1 top_panel_right yellow" transform="translate(929 705)">
-                    <path class="cls-3" d="M0,0H11a5,5,0,0,1,5,5V16a7,7,0,0,1-7,7H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z"/>
-                    <path class="cls-4" d="M-.5-.5H11A5.5,5.5,0,0,1,16.5,5V16A7.5,7.5,0,0,1,9,23.5H-.5a0,0,0,0,1,0,0V-.5A0,0,0,0,1-.5-.5Z"/>
-                  </g>
-                  <g class="cls-1 top_panel_center cyan" transform="translate(908 705)">
-                    <rect class="cls-3" width="20" height="23"/>
-                    <rect class="cls-4" x="-0.5" y="-0.5" width="21" height="24"/>
-                  </g>
-                  <rect class="cls-2 top_strap_left black" width="5" height="24" transform="translate(897 705)"/>
-                  <rect class="cls-2 bottom_strap_left black" width="5" height="11" transform="translate(897 729)"/>
-                  <rect class="cls-2 bottom_strap_right black" width="5" height="11" transform="translate(934 729)"/>
-                  <path class="cls-2 accents black" d="M2,0H18a2,2,0,0,1,2,2V2a0,0,0,0,1,0,0H0A0,0,0,0,1,0,2V2A2,2,0,0,1,2,0Z" transform="translate(908 703)"/>
-                  <rect class="cls-2 zipper black" width="20" height="2" transform="translate(908 713)"/>
-                  <rect class="cls-2 top_strap_right black" width="5" height="24" transform="translate(934 705)"/>
-                </g>
-              </svg>
-
-              <svg class="handlebar_bag_icon saved1" xmlns="http://www.w3.org/2000/svg" width="56" height="38" viewBox="0 0 56 38">
-                <g class="handlebar_bag_icon" data-name="handlebar_bag_icon" transform="translate(-890 -703)">
-                  <g class="cls-1 bottom_panel_left red" transform="translate(891 722)">
-                    <path class="cls-3" d="M0,0H16a0,0,0,0,1,0,0V18a0,0,0,0,1,0,0H5a5,5,0,0,1-5-5V0A0,0,0,0,1,0,0Z"/>
-                    <path class="cls-4" d="M-.5-.5h17a0,0,0,0,1,0,0v19a0,0,0,0,1,0,0H5A5.5,5.5,0,0,1-.5,13V-.5A0,0,0,0,1-.5-.5Z"/>
-                  </g>
-                  <g class="cls-1 bottom_panel_right yellow" transform="translate(929 722)">
-                    <path class="cls-3" d="M0,0H16a0,0,0,0,1,0,0V13a5,5,0,0,1-5,5H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z"/>
-                    <path class="cls-4" d="M-.5-.5h17a0,0,0,0,1,0,0V13A5.5,5.5,0,0,1,11,18.5H-.5a0,0,0,0,1,0,0V-.5A0,0,0,0,1-.5-.5Z"/>
-                  </g>
-                  <g class="cls-1 bottom_panel_center cyan" transform="translate(908 722)">
-                    <rect class="cls-3" width="20" height="18"/>
-                    <rect class="cls-4" x="-0.5" y="-0.5" width="21" height="19"/>
-                  </g>
-                  <g class="cls-1 top_panel_left red" transform="translate(891 705)">
-                    <path class="cls-3" d="M5,0H16a0,0,0,0,1,0,0V23a0,0,0,0,1,0,0H7a7,7,0,0,1-7-7V5A5,5,0,0,1,5,0Z"/>
-                    <path class="cls-4" d="M5-.5H16.5a0,0,0,0,1,0,0v24a0,0,0,0,1,0,0H7A7.5,7.5,0,0,1-.5,16V5A5.5,5.5,0,0,1,5-.5Z"/>
-                  </g>
-                  <g class="cls-1 top_panel_right yellow" transform="translate(929 705)">
-                    <path class="cls-3" d="M0,0H11a5,5,0,0,1,5,5V16a7,7,0,0,1-7,7H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z"/>
-                    <path class="cls-4" d="M-.5-.5H11A5.5,5.5,0,0,1,16.5,5V16A7.5,7.5,0,0,1,9,23.5H-.5a0,0,0,0,1,0,0V-.5A0,0,0,0,1-.5-.5Z"/>
-                  </g>
-                  <g class="cls-1 top_panel_center cyan" transform="translate(908 705)">
-                    <rect class="cls-3" width="20" height="23"/>
-                    <rect class="cls-4" x="-0.5" y="-0.5" width="21" height="24"/>
-                  </g>
-                  <rect class="cls-2 top_strap_left black" width="5" height="24" transform="translate(897 705)"/>
-                  <rect class="cls-2 bottom_strap_left black" width="5" height="11" transform="translate(897 729)"/>
-                  <rect class="cls-2 bottom_strap_right black" width="5" height="11" transform="translate(934 729)"/>
-                  <path class="cls-2 accents black" d="M2,0H18a2,2,0,0,1,2,2V2a0,0,0,0,1,0,0H0A0,0,0,0,1,0,2V2A2,2,0,0,1,2,0Z" transform="translate(908 703)"/>
-                  <rect class="cls-2 zipper black" width="20" height="2" transform="translate(908 713)"/>
-                  <rect class="cls-2 top_strap_right black" width="5" height="24" transform="translate(934 705)"/>
-                </g>
-              </svg>
-
-              <svg class="handlebar_bag_icon saved1" xmlns="http://www.w3.org/2000/svg" width="56" height="38" viewBox="0 0 56 38">
-                <g class="handlebar_bag_icon" data-name="handlebar_bag_icon" transform="translate(-890 -703)">
-                  <g class="cls-1 bottom_panel_left red" transform="translate(891 722)">
-                    <path class="cls-3" d="M0,0H16a0,0,0,0,1,0,0V18a0,0,0,0,1,0,0H5a5,5,0,0,1-5-5V0A0,0,0,0,1,0,0Z"/>
-                    <path class="cls-4" d="M-.5-.5h17a0,0,0,0,1,0,0v19a0,0,0,0,1,0,0H5A5.5,5.5,0,0,1-.5,13V-.5A0,0,0,0,1-.5-.5Z"/>
-                  </g>
-                  <g class="cls-1 bottom_panel_right yellow" transform="translate(929 722)">
-                    <path class="cls-3" d="M0,0H16a0,0,0,0,1,0,0V13a5,5,0,0,1-5,5H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z"/>
-                    <path class="cls-4" d="M-.5-.5h17a0,0,0,0,1,0,0V13A5.5,5.5,0,0,1,11,18.5H-.5a0,0,0,0,1,0,0V-.5A0,0,0,0,1-.5-.5Z"/>
-                  </g>
-                  <g class="cls-1 bottom_panel_center cyan" transform="translate(908 722)">
-                    <rect class="cls-3" width="20" height="18"/>
-                    <rect class="cls-4" x="-0.5" y="-0.5" width="21" height="19"/>
-                  </g>
-                  <g class="cls-1 top_panel_left red" transform="translate(891 705)">
-                    <path class="cls-3" d="M5,0H16a0,0,0,0,1,0,0V23a0,0,0,0,1,0,0H7a7,7,0,0,1-7-7V5A5,5,0,0,1,5,0Z"/>
-                    <path class="cls-4" d="M5-.5H16.5a0,0,0,0,1,0,0v24a0,0,0,0,1,0,0H7A7.5,7.5,0,0,1-.5,16V5A5.5,5.5,0,0,1,5-.5Z"/>
-                  </g>
-                  <g class="cls-1 top_panel_right yellow" transform="translate(929 705)">
-                    <path class="cls-3" d="M0,0H11a5,5,0,0,1,5,5V16a7,7,0,0,1-7,7H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z"/>
-                    <path class="cls-4" d="M-.5-.5H11A5.5,5.5,0,0,1,16.5,5V16A7.5,7.5,0,0,1,9,23.5H-.5a0,0,0,0,1,0,0V-.5A0,0,0,0,1-.5-.5Z"/>
-                  </g>
-                  <g class="cls-1 top_panel_center cyan" transform="translate(908 705)">
-                    <rect class="cls-3" width="20" height="23"/>
-                    <rect class="cls-4" x="-0.5" y="-0.5" width="21" height="24"/>
-                  </g>
-                  <rect class="cls-2 top_strap_left black" width="5" height="24" transform="translate(897 705)"/>
-                  <rect class="cls-2 bottom_strap_left black" width="5" height="11" transform="translate(897 729)"/>
-                  <rect class="cls-2 bottom_strap_right black" width="5" height="11" transform="translate(934 729)"/>
-                  <path class="cls-2 accents black" d="M2,0H18a2,2,0,0,1,2,2V2a0,0,0,0,1,0,0H0A0,0,0,0,1,0,2V2A2,2,0,0,1,2,0Z" transform="translate(908 703)"/>
-                  <rect class="cls-2 zipper black" width="20" height="2" transform="translate(908 713)"/>
-                  <rect class="cls-2 top_strap_right black" width="5" height="24" transform="translate(934 705)"/>
-                </g>
-              </svg>
+            
+            <div id="saved-configurations">
+                <!-- Saved configuration thumbnails will be added here -->
             </div>
+
             <div class="purchase-options d-flex flex-wrap align-items-center justify-content-between">
               <div class="col-auto mt-3">
                 <div class="quantity-container">
@@ -241,6 +169,9 @@
               <div class="col mt-3">
                 <button type="submit" class="btn btn-lg btn-primary">Add to cart</button>
               </div>
+            </div>
+            <div class="delivery pt-5">
+              <span><strong>This item is made to order.</strong> Delivery time is 5 days.</span>
             </div>
           </div>
         </div>
@@ -355,7 +286,7 @@
                   <div class="col">
                     <h5>Shop</h5>
                     <ul class="nav flex-column">
-                      <li class="nav-item "><a href="#">All bags</a></li>
+                      <li class="nav-item "><a href="#">Collections</a></li>
                       <li class="nav-item "><a href="#">Mercado Libre</a></li>
                     </ul>
                   </div>
@@ -396,11 +327,69 @@
     <!-- Custom Select -->
     <script>
       customSelect({
-        el: '.customizer select',
+        el: '.customizer-options select',
         className: 'custom-select',
         width: false,
         injectCSS : false
       });
     </script>
+
+    <!-- Resize Product Image -->
+    <script>
+      function updateScale() {
+        const element = document.getElementById('product-views');
+        const windowWidth = window.innerWidth;
+
+        if (windowWidth <= 1080) {
+          const scaleFactor = windowWidth / 1080; // Scale relative to max width
+          element.style.transform = `scale(${scaleFactor})`;
+        } else {
+          element.style.transform = 'scale(1)'; // Reset scale when larger
+        }
+      }
+
+      // Update scale on window resize
+      window.addEventListener('resize', updateScale);
+
+      // Initial scale setup
+      updateScale();
+    </script>
+
+    <!-- Color Selector -->
+    <script src="js/color_selector.js"></script>
+
+    <!-- Carousel -->
+    <!-- <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const views = Array.from(document.querySelectorAll('#product-views > div'))
+            .filter(view => view.id !== 'front_extended-view'); // Exclude the extended view from the list
+          
+          const prevBtn = document.querySelector('.nav-arrow.left');
+          const nextBtn = document.querySelector('.nav-arrow.right');
+          let currentIndex = 0;
+
+          function showView(index) {
+              views.forEach(view => view.classList.remove('active'));
+              views[index].classList.add('active');
+          }
+
+          function nextView() {
+              currentIndex = (currentIndex + 1) % views.length;
+              showView(currentIndex);
+          }
+
+          function prevView() {
+              currentIndex = (currentIndex - 1 + views.length) % views.length;
+              showView(currentIndex);
+          }
+
+          prevBtn.addEventListener('click', prevView);
+          nextBtn.addEventListener('click', nextView);
+
+          document.getElementById('front-view').classList.add('active');
+
+      });
+    </script> -->
+
 </body>
 </html>
