@@ -135,44 +135,44 @@ function updateProductViews(product) {
     VIEWS.forEach(view => {
         const viewContainer = document.createElement('div');
         viewContainer.id = `${view}-view`;
-        
-        // Add default classes
         viewContainer.classList.add('product-view');
         
-        // Set visibility based on carousel state
         if (view === 'front_extended' || (view !== CAROUSEL_VIEWS[currentViewIndex])) {
             viewContainer.classList.add('hidden');
         }
         
-        // Restore any existing classes
         if (existingViewClasses[view]) {
             existingViewClasses[view].forEach(className => {
                 viewContainer.classList.add(className);
             });
         }
 
-        // Only use components that are in the current product configuration
         Object.keys(product).forEach(component => {
             const componentDiv = document.createElement('div');
             componentDiv.classList.add('product-component');
             
             const img = document.createElement('img');
-            img.src = `images/products/hbar_bag/${component}_${product[component]}_${view}.png`;
+            const imgPath = `images/products/hbar_bag/${component}_${product[component]}_${view}.png`;
             img.alt = `${component} in ${product[component]}`;
-            img.loading = "lazy";
             
             // Create a promise for each image load
-            const imageLoadPromise = new Promise((resolve, reject) => {
-                img.onload = resolve;
+            const imageLoadPromise = new Promise((resolve) => {
+                img.onload = () => {
+                    resolve();
+                };
                 img.onerror = () => {
-                    console.error(`Failed to load image: ${img.src}`);
+                    console.error(`Failed to load image: ${imgPath}`);
                     componentDiv.classList.add('image-error');
-                    reject();
+                    // Still resolve the promise even if image fails to load
+                    resolve();
                 };
             });
             
+            // Add promise to array before setting src
             imageLoadPromises.push(imageLoadPromise);
             
+            // Set src after creating promise
+            img.src = imgPath;
             componentDiv.appendChild(img);
             viewContainer.appendChild(componentDiv);
         });
@@ -180,11 +180,19 @@ function updateProductViews(product) {
         productViews.appendChild(viewContainer);
     });
 
-    // Hide loading overlay once all images have loaded or failed
-    Promise.allSettled(imageLoadPromises)
-        .then(() => {
-            loadingOverlay.classList.add('hidden');
-        });
+    if (imageLoadPromises.length > 0) {
+        // Hide loading overlay once all images have loaded or failed
+        Promise.all(imageLoadPromises)
+            .then(() => {
+                loadingOverlay.classList.add('hidden');
+            })
+            .catch(() => {
+                loadingOverlay.classList.add('hidden');
+            });
+    } else {
+        // If no images to load, hide overlay immediately
+        loadingOverlay.classList.add('hidden');
+    }
 }
 
 // Setup color swatch functionality
